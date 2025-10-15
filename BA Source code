@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Analytics - Task 2 - Drisha J</title>
+<style>
+  body{margin:0;padding:20px;font-family:sans-serif;background:#071028;color:#e6eef6;line-height:1.5}
+  h1,h2{color:#6ee7b7;margin-top:20px}
+  details{margin-bottom:10px}
+  summary{cursor:pointer;background:#021025;padding:6px;border-radius:5px}
+  .box{background:#021025;padding:10px;border-radius:5px;margin:6px 0;font-family:monospace;color:#9be7cf;white-space:pre-wrap}
+  .story{margin:6px 0;padding:6px;background:#021025;border-radius:5px}
+</style>
+</head>
+<body>
+
+<h1>Business Analytics - Task 2 PPT</h1>
+<p>Presenter: <strong>Drisha J</strong></p>
+
+<h2>Overview</h2>
+<div class="story">Covers user stories with acceptance criteria, UML diagrams, and API documentation using Postman.</div>
+
+<h2>User Stories</h2>
+<details open><summary>1. Registration & Login )</summary><div class="story">Given registration page, when valid info entered, then account created & login works.</div></details>
+<details><summary>2. Browse Restaurants </summary><div class="story">Search by location lists nearby restaurants.</div></details>
+<details><summary>3. Add to Cart</summary><div class="story">Cart updates quantity/toppings; totals update.</div></details>
+<details><summary>4. Secure Payment </summary><div class="story">Successful payment places order.</div></details>
+<details><summary>5. Live Tracking </summary><div class="story">Order status updates; notifications sent.</div></details>
+<details><summary>6. Ratings & Feedback </summary><div class="story">Delivered orders can be rated; feedback updates restaurant rating.</div></details>
+<details><summary>7. Order History )</summary><div class="story">Past orders listed; reorder adds items to cart.</div></details>
+
+<h2>UML Diagrams</h2>
+<div class="story"><strong>Activity Diagram:</strong> Login flow, payment success/failure.</div>
+<div class="story"><strong>Sequence Diagram:</strong> Customer → System → DB → Restaurant → Payment → Delivery messages.</div>
+<div class="story"><strong>Class Diagram:</strong> User, Restaurant, MenuItem, Order, Payment, Delivery; Order hasMany MenuItem.</div>
+
+<h2>API Flow (Postman)</h2>
+<div class="box">// Request { POST /v1/order, headers, body } 
+// Server { validate → business logic → payment → save order } 
+// Response { success 201 {orderId, status, amount} | error 4xx/5xx }</div>
+
+<details><summary>Example Request</summary>
+<div class="box">{
+"restaurantId":"1234",
+"itemId":"5678",
+"quantity":2,
+"paymentMethod":"UPI"
+}</div>
+</details>
+
+<details><summary>Success Response</summary>
+<div class="box">{
+"orderId":"ORD7890",
+"status":"Order Placed",
+"amount":450,
+"message":"Order placed successfully"
+}</div>
+</details>
+
+<details><summary>Error Response</summary>
+<div class="box">{
+"status":"Failed",
+"errorCode":"PAYMENT_DECLINED",
+"message":"Payment failed"
+}</div>
+</details>
+
+<h2>Slide Outline</h2>
+<div class="story">Slides 1–8: User Stories</div>
+<div class="story">Slides 9–13: UML Diagrams</div>
+<div class="story">Slides 14–18: API Documentation</div>
+<div class="story">Slide 19: Thank You / References</div>
+
+</body>
+</html>
